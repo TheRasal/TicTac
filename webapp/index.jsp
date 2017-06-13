@@ -19,7 +19,7 @@
   </form>
 </div>
   <div>
-   <center> <table style="border-collapse: collapse; border:1px solid black; margin: 0px;" >
+   <center> <table style="cellspacing: 0;" >
 
     <c:forEach var="list" items="${result}">
       <tr>
@@ -30,7 +30,7 @@
             <form action="/tictak/game" method="post">
                 <input type="hidden" name="varX" value="${list1}">
                 <input type="submit"
-                   style="border-collapse:collapse; border:1px solid black; width: 50px; height: 50px;"
+                   style="cellspacing: 0px; width: 50px; height: 50px;"
                    value="" />
             </form>
             </c:if>
@@ -49,6 +49,7 @@
 
     </c:forEach>
     </table></center>
+      <br>${winner}
   </div>
 
   </body>

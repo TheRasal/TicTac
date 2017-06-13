@@ -29,9 +29,17 @@
             <c:if test="${'9'!=list1&&'10'!=list1}">
             <form action="/tictak/game" method="post">
                 <input type="hidden" name="varX" value="${list1}">
-                <input type="submit"
-                   style="cellspacing: 0px; width: 50px; height: 50px;"
-                   value="" />
+                <c:if test="${win}">
+                    <input type="button"
+                           style="cellspacing: 0px; width: 50px; height: 50px;"
+                           value="" />
+                </c:if>
+                <c:if test="${!win}">
+                    <input type="submit"
+                           style="cellspacing: 0px; width: 50px; height: 50px;"
+                           value="" />
+                </c:if>
+
             </form>
             </c:if>
             <c:if test="${'9'==list1}">

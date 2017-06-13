@@ -51,7 +51,8 @@ public class MainController {
             }
         }
        if ((tic[0][0].equals("9")&&tic[0][0].equals(tic[0][1])
-               &&tic[0][0].equals(tic[0][2]))||(tic[0][0].equals("9")&&tic[0][0].equals(tic[1][0])
+               &&tic[0][0].equals(tic[0][2]))||(tic[0][1].equals("9")&&tic[0][1].equals(tic[1][1])
+               &&tic[0][1].equals(tic[2][1]))||(tic[0][0].equals("9")&&tic[0][0].equals(tic[1][0])
        &&tic[0][0].equals(tic[2][0]))||(tic[0][2].equals("9")&&tic[0][2].equals(tic[1][2])
                &&tic[0][2].equals(tic[2][2]))||(tic[2][0].equals("9")&&tic[2][0].equals(tic[2][1])
                &&tic[2][0].equals(tic[2][2]))||(tic[2][0].equals("9"
@@ -61,7 +62,8 @@ public class MainController {
 
         return true;
        }else if ((tic[0][0].equals("10")&&tic[0][0].equals(tic[0][1])
-               &&tic[0][0].equals(tic[0][2]))||(tic[0][0].equals("10")&&tic[0][0].equals(tic[1][0])
+               &&tic[0][0].equals(tic[0][2]))||(tic[0][1].equals("10")&&tic[0][1].equals(tic[1][1])
+               &&tic[0][1].equals(tic[2][1]))||(tic[0][0].equals("10")&&tic[0][0].equals(tic[1][0])
                 &&tic[0][0].equals(tic[2][0]))||(tic[0][2].equals("10")&&tic[0][2].equals(tic[1][2])
                 &&tic[0][2].equals(tic[2][2]))||(tic[2][0].equals("10")&&tic[2][0].equals(tic[2][1])
                 &&tic[2][0].equals(tic[2][2]))||(tic[2][0].equals("10"
@@ -84,7 +86,9 @@ public class MainController {
         for (int j=0;j<tic.length;j++){
             if (tic[i][j].equals(varX)){
                 tic[i][j]="9";
-                random();
+                if(!winner()){
+                    random();
+                }
                 winner();
                 break;
             }
@@ -92,11 +96,12 @@ public class MainController {
     }
     if (winner()){
         request.setAttribute("winner", winner);
+
     }
 
 
 
-
+request.setAttribute("win", winner());
     request.setAttribute("result", tic);
     return "/index.jsp";
 
